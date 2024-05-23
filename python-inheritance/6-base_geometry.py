@@ -1,12 +1,10 @@
 #!/usr/bin/python3
+"""Improve Geometry"""
+
+
 class BaseGeometry:
-    """
-    This is the base class for geometry objects.
-    """
+    """representation of BaseGeometry"""
 
     def area(self):
-        """
-        Calculates the area of the geometry object.
-        This method should be implemented by subclasses.
-        """
+        """raises an exception"""
         raise Exception("area() is not implemented")

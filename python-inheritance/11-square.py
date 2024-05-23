@@ -1,30 +1,21 @@
 #!/usr/bin/python3
+"""Square #2"""
 Rectangle = __import__('9-rectangle').Rectangle
 
 
 class Square(Rectangle):
-    """
-    Represents a square, a special type of rectangle with equal sides.
-
-    Attributes:
-        size (int): The length of each side of the square.
-    """
+    """representation of a square"""
 
     def __init__(self, size):
-        """
-        Initializes a new instance of the Square class.
-
-        Args:
-            size (int): The length of each side of the square.
-        """
+        """instantiation of the square"""
+        self.integer_validator("size", size)
         super().__init__(size, size)
         self.__size = size
 
     def __str__(self):
-        """
-        Returns a string representation of the Square object.
+        """custom str method for print the rectangle"""
+        return "[Square] " + str(self.__size) + "/" + str(self.__size)
 
-        Returns:
-            str: A string in the format "[Square] size/size".
-        """
-        return "[Square] {:d}/{:d}".format(self.__size, self.__size)
+    def area(self):
+        """computes the area of the retangle"""
+        return self.__size ** 2
