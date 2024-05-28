@@ -3,11 +3,13 @@
 
 class Student:
     def __init__(self, first_name, last_name, age):
+        """Initializes a new instance of the Student class."""
         self.first_name = first_name
         self.last_name = last_name
         self.age = age
 
     def to_json(self, attrs=None):
+        """Converts the attributes of the Student object to a JSON representation."""
         class_d = self.__dict__
         sel_d = dict()
 
@@ -24,6 +26,7 @@ class Student:
         return class_d
 
     def reload_from_json(self, json):
+        """Reloads the attributes of the Student instance from a JSON representation."""
         for i in json:
             if i in self.__dict__.keys():
                 self.__dict__[i] = json[i]
