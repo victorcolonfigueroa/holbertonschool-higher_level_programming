@@ -8,10 +8,6 @@ user = {}
 def home():
     return "Welcome to the API Flask!"
 
-user ={
-    "jane":{"name": "Jane", "age": 28, "city": "Los Angeles"},
-    "john":{"name": "John", "age":30, "city": "New York"} 
-}
 
 @app.rout('/data')
 def data():
@@ -31,16 +27,16 @@ def get_user(username):
     
 @app.route("/add_user", methods=["POST"])
 def add_user():
-nesc_data = request.get_json()
-username = nesc_data.get("username")
+    req_data = request.get_json()
+    username = req_data.get("username")
 
 if username and username is not users:
     users[username]={
-        "name": nesc_data["name"],
-        "age": nesc_data["age"],
-        "city": nesc_data["city"]
+        "name": req_data["name"],
+        "age": req_data["age"],
+        "city": req_data["city"]
     }
-    return jsonify(user{username}),201
+    return jsonify(user(username)),201
 else:
     return "User already exists or invalid data", 400
 
