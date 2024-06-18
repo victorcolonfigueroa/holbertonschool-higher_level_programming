@@ -1,3 +1,2 @@
---shows tables in the database
-USE hbtn_0c_0;
+-- shows tables in the database
 SHOW TABLES;

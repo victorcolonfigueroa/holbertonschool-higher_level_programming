@@ -1,2 +1,2 @@
---crates a database
-CREATE DATABASE IF NOT EXISTS dhbtn_0c_0;
+-- creates a database
+CREATE DATABASE IF NOT EXISTS hbtn_0c_0;
