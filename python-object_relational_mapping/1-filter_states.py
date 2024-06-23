@@ -1,18 +1,18 @@
-import MySQLdb
 import sys
+import MySQLdb
 
-def list_states_with_n(username, password, dbname):
-    """
-    Connects to a MySQL database and lists all states with names starting with N, sorted by id in ascending order
-    """
-    db = MySQLdb.connect(host="localhost", port=3306, user=username, passwd=password, db=dbname)
-    cur = db.cursor()
-    cur.execute("SELECT * FROM states WHERE name LIKE 'N%' ORDER BY id ASC")
-    rows = cur.fetchall()
-    for row in rows:
+
+if __name__ == '__main__':
+
+    conn = MySQLdb.connect(host="localhost", port=3306, user=sys.argv[1],
+                           passwd=sys.argv[2], db=sys.argv[3], charset="utf8")
+    cur = conn.cursor()
+    cur.execute(
+        "SELECT * FROM states WHERE name LIKE BINARY 'N%' ORDER BY id ASC")
+    # HERE I have to know SQL to grab all states in my database
+    query_rows = cur.fetchall()
+    for row in query_rows:
+        # if row[1][0] == 'N':
         print(row)
     cur.close()
-    db.close()
-    
-if __name__ == "__main__":
-    list_states_with_n(sys.argv[1], sys.argv[2], sysargv[3])
+    conn.close()
